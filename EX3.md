@@ -68,7 +68,7 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 ### Q1) List the name of the employees whose salary is greater than that of employee with empno 7566.
 ### QUERY:
 ```
-SELECT ename FROM em WHERE sal > (SELECT sal FROM em WHERE empno = 7566);
+SELECT ename FROM EMP WHERE sal > (SELECT sal FROM EMP WHERE empno = 7566);
 ```
 ### OUTPUT:
 ![image](https://github.com/RKavikeerthana/EX-3-SubQueries-Views-and-Joins/assets/120431120/58c380a1-c7bc-4b4f-a7e6-212946f955c0)
@@ -77,7 +77,7 @@ SELECT ename FROM em WHERE sal > (SELECT sal FROM em WHERE empno = 7566);
 
 ### QUERY:
 ```
-SELECT ename,job,sal FROM em WHERE sal = (SELECT MIN(sal) FROM em);
+SELECT ename,job,sal FROM EMP WHERE sal = (SELECT MIN(sal) FROM EMP);
 ```
 ### OUTPUT:
 ![image](https://github.com/RKavikeerthana/EX-3-SubQueries-Views-and-Joins/assets/120431120/f7f53f8c-cb88-491c-a347-a9f502c5b28a)
@@ -86,7 +86,7 @@ SELECT ename,job,sal FROM em WHERE sal = (SELECT MIN(sal) FROM em);
 
 ### QUERY:
 ```
-SELECT ename,job FROM em WHERE deptno = 10 AND job IN (SELECT job FROM emp WHERE job = 'sales');
+SELECT ename,job FROM EMP WHERE deptno = 10 AND job IN (SELECT job FROM EMP WHERE job = 'sales');
 ```
 ### OUTPUT:
 ![image](https://github.com/RKavikeerthana/EX-3-SubQueries-Views-and-Joins/assets/120431120/285f01e3-0d11-496b-8f82-6cdc64db6e76)
@@ -95,7 +95,7 @@ SELECT ename,job FROM em WHERE deptno = 10 AND job IN (SELECT job FROM emp WHERE
 
 ### QUERY:
 ```
-CREATE VIEW emv5 AS SELECT empno,ename,job from em WHERE deptno = 10;
+CREATE VIEW EMPv5 AS SELECT empno,ename,job from EMP WHERE deptno = 10;
 SELECT ename FROM emv5;
 ```
 ### OUTPUT:
@@ -105,17 +105,17 @@ SELECT ename FROM emv5;
 
 ### QUERY:
 ```
-CREATE VIEW emv30 AS SELECT empno AS "Employee Number",ename AS "Employee Nmae",sal AS "Salary" from em WHERE deptno = 30;
-SELECT * FROM emv30;
+CREATE VIEW EMPv30 AS SELECT empno AS "Employee Number",ename AS "Employee Nmae",sal AS "Salary" from EMP WHERE deptno = 30;
+SELECT * FROM EMPv30;
 ```
 ### OUTPUT:
-![image](https://github.com/RKavikeerthana/EX-3-SubQueries-Views-and-Joins/assets/120431120/8c456076-1b9a-4358-9662-3ba508f581fb)
+![image](https://github.com/RKavikeerthana/EX-3-SubQueries-Views-and-Joins/assets/120431120/f1efcf9f-d54e-4644-a871-ba014f28bb9f)
 
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
 ### QUERY:
 ```
-UPDATE emv5 SET sal = al * 1.1 WHERE job = 'CLERK';
+UPDATE EMPv5 SET sal = al * 1.1 WHERE job = 'CLERK';
 ```
 ### OUTPUT:
 ![image](https://github.com/RKavikeerthana/EX-3-SubQueries-Views-and-Joins/assets/120431120/4d38ce5d-ccac-4e18-a379-2e40b01f3f61)
