@@ -2,7 +2,7 @@
 
 # DATE:29.8.23
 # AIM:
-To created SubQueries,Views and Joins.
+To create SubQueries,Views and Joins.
 ## Create employee Table
 ```sql
 CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR NUMBER(4)
